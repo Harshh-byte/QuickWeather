@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const API_KEY = "82d3532c228d408fa9a91650250906"; // Your WeatherAPI.com API key
+    const API_KEY = ""; // Your WeatherAPI.com API key
 
     const searchIcon = document.getElementById('search-icon');
     const searchInput = document.getElementById('search-input');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch current weather data
     async function fetchCurrentWeather(city) {
-        const url = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`;
+        const url = `https://weather-app.onrender.com/weather?type=current&city=${city}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch historical weather data
     async function fetchHistoricalWeather(city, date) {
-        const url = `http://api.weatherapi.com/v1/history.json?key=${API_KEY}&q=${city}&dt=${date}`;
+        const url = `https://weather-app.onrender.com/weather?type=history&city=${city}&date=${date}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch forecast weather data (for tomorrow)
     async function fetchForecastWeather(city, days) {
-        const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=${days}`;
+        const url = `https://weather-app.onrender.com/weather?type=forecast&city=${city}&days=${days}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -177,20 +177,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateTomorrowCard(data) {
-    if (data && data.forecast && data.forecast.forecastday[1]) { // forecastday[1] for tomorrow
-        const tomorrowData = data.forecast.forecastday[1].day;
-        const condition = tomorrowData.condition.text;
-        tomorrowCondition.textContent = `${getWeatherEmoji(condition)} ${condition}`;
-        tomorrowMinMax.textContent = `Min: ${tomorrowData.mintemp_c}°C | Max: ${tomorrowData.maxtemp_c}°C`;
-        tomorrowHumidity.textContent = `Humidity: ${tomorrowData.avghumidity}%`;
-        tomorrowWind.textContent = `Wind: ${tomorrowData.maxwind_kph} km/h`;
-    } else {
-        tomorrowCondition.textContent = 'N/A';
-        tomorrowMinMax.textContent = 'Min: --°C | Max: --°C';
-        tomorrowHumidity.textContent = 'Humidity: --%';
-        tomorrowWind.textContent = 'Wind: -- km/h';
+        if (data && data.forecast && data.forecast.forecastday[1]) { // forecastday[1] for tomorrow
+            const tomorrowData = data.forecast.forecastday[1].day;
+            const condition = tomorrowData.condition.text;
+            tomorrowCondition.textContent = `${getWeatherEmoji(condition)} ${condition}`;
+            tomorrowMinMax.textContent = `Min: ${tomorrowData.mintemp_c}°C | Max: ${tomorrowData.maxtemp_c}°C`;
+            tomorrowHumidity.textContent = `Humidity: ${tomorrowData.avghumidity}%`;
+            tomorrowWind.textContent = `Wind: ${tomorrowData.maxwind_kph} km/h`;
+        } else {
+            tomorrowCondition.textContent = 'N/A';
+            tomorrowMinMax.textContent = 'Min: --°C | Max: --°C';
+            tomorrowHumidity.textContent = 'Humidity: --%';
+            tomorrowWind.textContent = 'Wind: -- km/h';
+        }
     }
-}
 
     // Main function to fetch and update all weather cards
     async function updateAllWeatherCards(city) {
