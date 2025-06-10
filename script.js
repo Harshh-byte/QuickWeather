@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch current weather data
     async function fetchCurrentWeather(city) {
-        const url = `https://weather-app.onrender.com/weather?type=current&city=${city}`;
+        const url = `https://weather-app-8wai.onrender.com/weather?type=current&city=${city}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch historical weather data
     async function fetchHistoricalWeather(city, date) {
-        const url = `https://weather-app.onrender.com/weather?type=history&city=${city}&date=${date}`;
+        const url = `https://weather-app-8wai.onrender.com/weather?type=history&city=${city}&date=${date}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch forecast weather data (for tomorrow)
     async function fetchForecastWeather(city, days) {
-        const url = `https://weather-app.onrender.com/weather?type=forecast&city=${city}&days=${days}`;
+        const url = `https://weather-app-8wai.onrender.com/weather?type=forecast&city=${city}&days=${days}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
