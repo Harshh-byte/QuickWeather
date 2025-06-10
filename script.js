@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const API_KEY = ""; // Your WeatherAPI.com API key
+    const API_KEY = "";  // Your WeatherAPI.com API key
+    const BASE_URL = "https://api.weatherapi.com/v1"; // Base URL for WeatherAPI.com
 
     const searchIcon = document.getElementById('search-icon');
     const searchInput = document.getElementById('search-input');
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch current weather data
     async function fetchCurrentWeather(city) {
-        const url = `https://weather-app-8wai.onrender.com/weather?type=current&city=${city}`;
+        const url = `${BASE_URL}/current.json?key=${API_KEY}&q=${city}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -113,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch historical weather data
     async function fetchHistoricalWeather(city, date) {
-        const url = `https://weather-app-8wai.onrender.com/weather?type=history&city=${city}&date=${date}`;
+        const url = `${BASE_URL}/history.json?key=${API_KEY}&q=${city}&dt=${date}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch forecast weather data (for tomorrow)
     async function fetchForecastWeather(city, days) {
-        const url = `https://weather-app-8wai.onrender.com/weather?type=forecast&city=${city}&days=${days}`;
+        const url = `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=${days}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
