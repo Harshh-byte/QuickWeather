@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // const API_KEY = "";  Your WeatherAPI.com API key
+    const API_KEY = "5aa3be39dbbe4da4be2103130251006"; // Your WeatherAPI.com API key
     const BASE_URL = "https://api.weatherapi.com/v1"; // Base URL for WeatherAPI.com
 
     const searchIcon = document.getElementById('search-icon');
