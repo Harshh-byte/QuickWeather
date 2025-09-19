@@ -1,59 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>QuickWeather</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="icon" href="weather.png" type="image/x-icon">
-</head>
 
-<body>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Remix Icon Library for Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="weather.png" type="image/x-icon" />
+
+    <!-- Inter font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ===========================
+         Main Weather App Container
+         =========================== -->
     <div class="weather-container">
-        <div class="weather-header">
-            <div class="header-row">
-                <h1>Weather Forecast</h1>
-                <div class="icons">
-                    <i id="search-icon" class="ri-search-2-line"></i>
-                    <input id="search-input" type="text" placeholder="Search location..." style="display:none;">
-                    <i id="theme-icon" class="ri-moon-line"></i>
-                </div>
-            </div>
-            <p>Location: <span class="location">Tokyo, Japan</span></p>
+      <!-- ===========================
+           Header: Title, Search, Theme Toggle
+           =========================== -->
+      <div class="weather-header">
+        <div class="header-row">
+          <h1>Weather Forecast</h1>
+
+          <!-- Search & Theme Controls -->
+          <div class="icons">
+            <!-- Search Icon + Input -->
+            <i id="search-icon" class="ri-search-2-line" tabindex="0"></i>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Search location..."
+            />
+            <!-- Theme Toggle Icon -->
+            <i id="theme-icon" class="ri-moon-line" tabindex="0"></i>
+          </div>
         </div>
 
-        <div class="weather-cards">
-            <!-- Yesterday -->
-            <div class="weather-card yesterday">
-                <h2>Yesterday</h2>
-                <p class="condition">🌧️ Rainy</p>
-                <p class="temp">25°C</p>
-                <p class="humidity">Humidity: 80%</p>
-                <p class="wind">Wind: 10 km/h</p>
-            </div>
+        <!-- Dynamic Location Display -->
+        <p>Location: <span class="location">Tokyo, Japan</span></p>
+      </div>
 
-            <!-- Today -->
-            <div class="weather-card today">
-                <h2>Today</h2>
-                <p class="condition">☁️ Cloudy</p>
-                <p class="temp">27°C</p>
-                <p class="humidity">Humidity: 70%</p>
-                <p class="wind">Wind: 12 km/h</p>
-            </div>
-
-            <!-- Tomorrow -->
-            <div class="weather-card tomorrow">
-                <h2>Tomorrow</h2>
-                <p class="condition">🌤️ Sunny</p>
-                <p class="min-max">Min: 23°C | Max: 30°C</p>
-                <p class="humidity">Humidity: 60%</p>
-                <p class="wind">Wind: 15 km/h</p>
-            </div>
+      <!-- ===========================
+           Weather Cards (Yesterday, Today, Tomorrow)
+           =========================== -->
+      <div class="weather-cards">
+        <!-- Yesterday's Weather Card -->
+        <div class="weather-card yesterday">
+          <h2>Yesterday</h2>
+          <p class="condition">🌧️ Rainy</p>
+          <p class="temp">25°C</p>
+          <p class="humidity">Humidity: 80%</p>
+          <p class="wind">Wind: 10 km/h</p>
         </div>
+
+        <!-- Today's Weather Card -->
+        <div class="weather-card today">
+          <h2>Today</h2>
+          <p class="condition">☁️ Cloudy</p>
+          <p class="temp">27°C</p>
+          <p class="humidity">Humidity: 70%</p>
+          <p class="wind">Wind: 12 km/h</p>
+        </div>
+
+        <!-- Tomorrow's Weather Card -->
+        <div class="weather-card tomorrow">
+          <h2>Tomorrow</h2>
+          <p class="condition">🌤️ Sunny</p>
+          <p class="min-max">Min: 23°C | Max: 30°C</p>
+          <p class="humidity">Humidity: 60%</p>
+          <p class="wind">Wind: 15 km/h</p>
+        </div>
+      </div>
     </div>
-    <script src="script.js"></script>
-</body>
 
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+  </body>
 </html>
